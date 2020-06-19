@@ -36,12 +36,12 @@
                         </goals>
                         <configuration>
                             <artifactItems>
-                                <artifactItem>
-                                    <groupId>bi.meteorite</groupId>
-                                    <artifactId>licenseserver-core</artifactId>
-                                    <version>1.0-SNAPSHOT</version>
-                                    <outputDirectory>target/dist/saiku/lib</outputDirectory>
-                                </artifactItem>
+<!--                                <artifactItem>-->
+<!--                                    <groupId>bi.meteorite</groupId>-->
+<!--                                    <artifactId>licenseserver-core</artifactId>-->
+<!--                                    <version>1.0-SNAPSHOT</version>-->
+<!--                                    <outputDirectory>target/dist/saiku/lib</outputDirectory>-->
+<!--                                </artifactItem>-->
                                 <artifactItem>
                                     <groupId>org.mozilla</groupId>
                                     <artifactId>rhino</artifactId>
@@ -207,11 +207,11 @@
                                     <artifactId>xmlgraphics-commons</artifactId>
                                     <outputDirectory>target/dist/saiku/lib</outputDirectory>
                                 </artifactItem>
-                                <artifactItem>
-                                    <groupId>iText</groupId>
-                                    <artifactId>iText</artifactId>
-                                    <outputDirectory>target/dist/saiku/lib</outputDirectory>
-                                </artifactItem>
+<!--                                <artifactItem>-->
+<!--                                    <groupId>iText</groupId>-->
+<!--                                    <artifactId>iText</artifactId>-->
+<!--                                    <outputDirectory>target/dist/saiku/lib</outputDirectory>-->
+<!--                                </artifactItem>-->
                                 <artifactItem>
                                     <groupId>org.mozilla</groupId>
                                     <artifactId>rhino</artifactId>
@@ -755,10 +755,10 @@
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>xmlgraphics-commons</artifactId>
         </dependency>
-        <dependency>
-            <groupId>iText</groupId>
-            <artifactId>iText</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>iText</groupId>-->
+<!--            <artifactId>iText</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>org.mozilla</groupId>

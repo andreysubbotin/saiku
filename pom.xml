@@ -7,33 +7,15 @@
     <packaging>pom</packaging>
     <version>3.17</version>
     <name>Saiku Module Project</name>
-    <scm>
-        <developerConnection>
-            scm:git:git@github.com:OSBI/saiku.git
-        </developerConnection>
-        <tag>saiku-3.9-SNAPSHOT</tag>
-    </scm>
+
     <modules>
         <module>saiku-core</module>
         <module>saiku-ui</module>
         <module>saiku-webapp</module>
         <module>saiku-server</module>
-        <!--<module>saiku-bi-platform-plugin-p7</module>-->
         <module>saiku-bi-platform-plugin-p7.1</module>
     </modules>
 
-    <distributionManagement>
-        <repository>
-            <id>utility</id>
-            <name>utility-releases</name>
-            <url>http://repo.meteorite.bi/repository/alabs-release-local/</url>
-        </repository>
-        <snapshotRepository>
-            <id>utility</id>
-            <name>utility-snapshots</name>
-            <url>http://repo.meteorite.bi/repository/alabs-snapshot-local/</url>
-        </snapshotRepository>
-    </distributionManagement>
     <properties>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -52,41 +34,23 @@
         <jbehave.version>3.9.3</jbehave.version>
         <saiku-query.version>0.4-SNAPSHOT</saiku-query.version>
     </properties>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>Analytical Labs Plugin Repo</id>
-            <name>Analytical Labs Repo-releases</name>
-            <url>http://repo.meteorite.bi/repository/alabs-release-local/</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <repositories>
+
         <repository>
-            <id>Analytical Labs Repo</id>
-            <name>Analytical Labs Repo-releases</name>
-            <url>http://repo.meteorite.bi/repository/alabs-release-local/</url>
+            <id>pentaho-public</id>
+            <name>Pentaho Public</name>
+            <url>http://nexus.pentaho.org/content/groups/omni</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
         </repository>
-        <repository>
-            <id>Analytical Labs snapshots</id>
-            <name>Analytical Labs Repo-releases</name>
-            <url>http://repo.meteorite.bi/repository/alabs-snapshot-local/</url>
-        </repository>
-        <repository>
-            <id>pentaho-third-party</id>
-            <url>http://nexus.pentaho.org/content/repositories/proxied-3rd-party-releases/</url>
-        </repository>
-        <repository>
-            <id>pentaho-public-release</id>
-            <url>http://nexus.pentaho.org/content/repositories/pentaho-public-release-repos/</url>
-        </repository>
-        <repository>
-            <id>pentaho-snapshot</id>
-            <url>http://nexus.pentaho.org/content/repositories/public-snapshots/</url>
-        </repository>
-        <!--<repository>
-            <id>atlassian2</id>
-            <url>http://repository.opencastproject.org/</url>
-        </repository>-->
+
         <repository>
             <id>central</id>
             <name>Maven Repository Switchboard</name>
@@ -116,11 +80,6 @@
             </snapshots>
         </repository>
 
-    	<repository>
-    		<id>pentaho-releases</id>
-    		<url>http://repository.pentaho.org/artifactory/repo/</url>
-    	</repository>
-
         <repository>
             <id>miredot</id>
             <url>http://nexus.qmino.com/content/repositories/miredot/</url>
@@ -132,58 +91,6 @@
     </repositories>
     <build>
         <plugins>
-
- <plugin>
-              <groupId>org.owasp</groupId>
-              <artifactId>dependency-check-maven</artifactId>
-              <version>2.1.1</version>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>check</goal>
-                      </goals>
-                  </execution>
-              </executions>
-            </plugin>
-      <!--      <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>2.11</version>
-                <executions>
-                    <execution>
-                        <id>include-announcement-file</id>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>announcement-generate</goal>
-                        </goals>
-                        <configuration>
-                            <announcementFile>CHANGES.txt</announcementFile>
-                            <announcementDirectory>${project.build.outputDirectory}/META-INF</announcementDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-                <configuration>
-                    <issueManagementSystems>
-                        <issueManagementSystem>JIRA</issueManagementSystem>
-                    </issueManagementSystems>
-                    <smtpHost>mail.yourhost.com</smtpHost>
-                    <smtpPort implementation="java.lang.Integer">25</smtpPort>
-                    <mailSender>
-                        <name>Release Notification</name>
-                        <email>build@example.com</email>
-                    </mailSender>
-                    <toAddresses>
-                        <toAddress implementation="java.lang.String">to@example.com</toAddress>
-                    </toAddresses>
-                    <useJql>true</useJql>
-                    <onlyCurrentVersion>true</onlyCurrentVersion>
-                    <resolutionIds>Fixed,Done</resolutionIds>
-                    <statusIds>Closed,Resolved,Done</statusIds>
-                    <columnNames>Type,Key,Summary,Priority,Status,Resolution,Fix Version,Assignee</columnNames>
-                    <webUser>...</webUser>
-                    <webPassword>...</webPassword>
-                </configuration>
-            </plugin>-->
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -202,10 +109,6 @@
                     <nexusUrl>http://repo.meteorite.bi</nexusUrl>
                     <skipStaging>true</skipStaging>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>license-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.rat</groupId>
@@ -252,28 +155,6 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
-            <!--<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <configuration>
-                            <configLocation>${top.dir}/src/main/config/checkstyle/checker.xml</configLocation>
-                            <suppressionsLocation>${top.dir}/src/main/config/checkstyle/suppressions.xml</suppressionsLocation>
-                            <consoleOutput>true</consoleOutput>
-                            <headerLocation>${top.dir}/src/main/config/checkstyle/header.txt</headerLocation>
-                            <failOnViolation>true</failOnViolation>
-                            <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
-
         </plugins>
         <pluginManagement>
             <plugins>
@@ -300,19 +181,7 @@
             </plugins>
         </pluginManagement>
     </build>
-    <issueManagement>
-        <system>JIRA</system>
-        <url>http://jira.meteorite.bi/browse/SKU</url>
-    </issueManagement>
-    <!--<reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>2.11</version>
-            </plugin>
-        </plugins>
-    </reporting>-->
+
     <profiles>
             <profile>
                 <id>ci</id>
@@ -704,11 +573,11 @@
                 <artifactId>batik-ext</artifactId>
                 <version>1.8</version>
             </dependency>
-            <dependency>
-                <groupId>iText</groupId>
-                <artifactId>iText</artifactId>
-                <version>4.2.0</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>iText</groupId>-->
+<!--                <artifactId>iText</artifactId>-->
+<!--                <version>4.2.0</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>org.saikuanalytics</groupId>
                 <artifactId>saiku-ui</artifactId>
